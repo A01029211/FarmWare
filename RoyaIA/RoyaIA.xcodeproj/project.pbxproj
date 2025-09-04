@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		FB22EF9A2E6A0734002F233B /* RoyaIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB22EFBD2E6A0D6F002F233B /* RoyaIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FB22EF9C2E6A0734002F233B /* RoyaIA */ = {
+		FB22EFBF2E6A0D6F002F233B /* RoyaIA */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RoyaIA;
 			sourceTree = "<group>";
@@ -19,7 +19,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FB22EF972E6A0734002F233B /* Frameworks */ = {
+		FB22EFBA2E6A0D6F002F233B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB22EF912E6A0734002F233B = {
+		FB22EFB42E6A0D6F002F233B = {
 			isa = PBXGroup;
 			children = (
-				FB22EF9C2E6A0734002F233B /* RoyaIA */,
-				FB22EF9B2E6A0734002F233B /* Products */,
+				FB22EFBF2E6A0D6F002F233B /* RoyaIA */,
+				FB22EFBE2E6A0D6F002F233B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FB22EF9B2E6A0734002F233B /* Products */ = {
+		FB22EFBE2E6A0D6F002F233B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB22EF9A2E6A0734002F233B /* RoyaIA.app */,
+				FB22EFBD2E6A0D6F002F233B /* RoyaIA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB22EF992E6A0734002F233B /* RoyaIA */ = {
+		FB22EFBC2E6A0D6F002F233B /* RoyaIA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB22EFA52E6A0737002F233B /* Build configuration list for PBXNativeTarget "RoyaIA" */;
+			buildConfigurationList = FB22EFC82E6A0D72002F233B /* Build configuration list for PBXNativeTarget "RoyaIA" */;
 			buildPhases = (
-				FB22EF962E6A0734002F233B /* Sources */,
-				FB22EF972E6A0734002F233B /* Frameworks */,
-				FB22EF982E6A0734002F233B /* Resources */,
+				FB22EFB92E6A0D6F002F233B /* Sources */,
+				FB22EFBA2E6A0D6F002F233B /* Frameworks */,
+				FB22EFBB2E6A0D6F002F233B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				FB22EF9C2E6A0734002F233B /* RoyaIA */,
+				FB22EFBF2E6A0D6F002F233B /* RoyaIA */,
 			);
 			name = RoyaIA;
 			packageProductDependencies = (
 			);
 			productName = RoyaIA;
-			productReference = FB22EF9A2E6A0734002F233B /* RoyaIA.app */;
+			productReference = FB22EFBD2E6A0D6F002F233B /* RoyaIA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FB22EF922E6A0734002F233B /* Project object */ = {
+		FB22EFB52E6A0D6F002F233B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					FB22EF992E6A0734002F233B = {
+					FB22EFBC2E6A0D6F002F233B = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
-			buildConfigurationList = FB22EF952E6A0734002F233B /* Build configuration list for PBXProject "RoyaIA" */;
+			buildConfigurationList = FB22EFB82E6A0D6F002F233B /* Build configuration list for PBXProject "RoyaIA" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FB22EF912E6A0734002F233B;
+			mainGroup = FB22EFB42E6A0D6F002F233B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = FB22EF9B2E6A0734002F233B /* Products */;
+			productRefGroup = FB22EFBE2E6A0D6F002F233B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB22EF992E6A0734002F233B /* RoyaIA */,
+				FB22EFBC2E6A0D6F002F233B /* RoyaIA */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FB22EF982E6A0734002F233B /* Resources */ = {
+		FB22EFBB2E6A0D6F002F233B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FB22EF962E6A0734002F233B /* Sources */ = {
+		FB22EFB92E6A0D6F002F233B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		FB22EFA32E6A0737002F233B /* Debug */ = {
+		FB22EFC62E6A0D72002F233B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		FB22EFA42E6A0737002F233B /* Release */ = {
+		FB22EFC72E6A0D72002F233B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,7 +244,7 @@
 			};
 			name = Release;
 		};
-		FB22EFA62E6A0737002F233B /* Debug */ = {
+		FB22EFC92E6A0D72002F233B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -271,7 +271,7 @@
 			};
 			name = Debug;
 		};
-		FB22EFA72E6A0737002F233B /* Release */ = {
+		FB22EFCA2E6A0D72002F233B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -301,25 +301,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB22EF952E6A0734002F233B /* Build configuration list for PBXProject "RoyaIA" */ = {
+		FB22EFB82E6A0D6F002F233B /* Build configuration list for PBXProject "RoyaIA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB22EFA32E6A0737002F233B /* Debug */,
-				FB22EFA42E6A0737002F233B /* Release */,
+				FB22EFC62E6A0D72002F233B /* Debug */,
+				FB22EFC72E6A0D72002F233B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB22EFA52E6A0737002F233B /* Build configuration list for PBXNativeTarget "RoyaIA" */ = {
+		FB22EFC82E6A0D72002F233B /* Build configuration list for PBXNativeTarget "RoyaIA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB22EFA62E6A0737002F233B /* Debug */,
-				FB22EFA72E6A0737002F233B /* Release */,
+				FB22EFC92E6A0D72002F233B /* Debug */,
+				FB22EFCA2E6A0D72002F233B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FB22EF922E6A0734002F233B /* Project object */;
+	rootObject = FB22EFB52E6A0D6F002F233B /* Project object */;
 }
