@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  api:
+    image: ghcr.io/davidortegit123/farmware-api:latest
+    container_name: farmware-api
+    ports:
+      - "3000:3001"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://farmware_user:farmware_passwordsupersecreto@db:5432/farmware_db
+h
+  db:
+    image: postgres:15
+    container_name: farmware-db
+    restart: always
+    environment:
+      POSTGRES_USER: farmware_user
+      POSTGRES_PASSWORD: farmware_passwordsupersecreto
+      POSTGRES_DB: farmware_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
