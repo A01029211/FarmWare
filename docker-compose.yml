@@ -10,7 +10,7 @@ services:
       - db
     environment:
       - DATABASE_URL=postgresql://farmware_user:farmware_passwordsupersecreto@db:5432/farmware_db
-h
+
   db:
     image: postgres:15
     container_name: farmware-db
