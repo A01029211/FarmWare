@@ -22,7 +22,8 @@ def get_image(filename):
     try:
         conn = get_db_connection()
         cur = conn.cursor()
-        cur.execute("SELECT image_data FROM images WHERE filename=%s", (filename,))
+        # Búsqueda case-insensitive
+        cur.execute("SELECT image_data FROM images WHERE filename ILIKE %s", (filename,))
         result = cur.fetchone()
     finally:
         cur.close()
