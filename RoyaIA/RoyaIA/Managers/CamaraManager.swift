@@ -26,7 +26,9 @@ class CamaraManager: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
         if session.canAddInput(input) {session.addInput(input)}
         if session.canAddOutput(output) { session.addOutput(output) }
         
-        session.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+                self.session.startRunning()
+            }
     }
     
     func getSession() -> AVCaptureSession {
@@ -38,7 +40,7 @@ class CamaraManager: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
         output.capturePhoto(with: settings, delegate: self)
     }
     
-    func PhotoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         if let data = photo.fileDataRepresentation(),
            let uiImage = UIImage(data: data) {
             DispatchQueue.main.async {

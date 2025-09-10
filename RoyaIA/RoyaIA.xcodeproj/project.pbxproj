@@ -254,6 +254,8 @@
 				DEVELOPMENT_TEAM = 92CS37DX94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos usar la cámara para escanear los cultivos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Necesitamos acceder a tus fotos para seleccionar cultivos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,6 +284,8 @@
 				DEVELOPMENT_TEAM = 92CS37DX94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos usar la cámara para escanear los cultivos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Necesitamos acceder a tus fotos para seleccionar cultivos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
