@@ -41,3 +41,8 @@ def get_image(image_name):
         image_bytes = BytesIO(response.data)
         return send_file(image_bytes, mimetype="image/jpeg", download_name=image_name)
     except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# --- Ejecutar servidor ---
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000, debug=True)
