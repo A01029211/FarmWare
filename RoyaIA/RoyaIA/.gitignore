@@ -1,2 +1,8 @@
 
 *.xcuserstate
+
+# Ignorar archivos de macOS
+.DS_Store
+
+# Ignorar archivos de usuario de Xcode
+*.xcuserstate
