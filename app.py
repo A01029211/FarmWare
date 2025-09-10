@@ -10,35 +10,34 @@ SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# Nombre del bucket en Supabase Storage
+# Nombre del bucket en Supabase Storage (respeta mayúsculas/minúsculas)
 BUCKET_NAME = "Images"
 
 # --- Rutas ---
 
 # Lista de imágenes disponibles
-@app.route("/Images", methods=["GET"])
+@app.route("/images", methods=["GET"])
 def list_images():
     try:
         response = supabase.storage.from_(BUCKET_NAME).list()
-        if response.error:
+        if hasattr(response, "error") and response.error:
             return jsonify({"error": response.error.message}), 500
-        # Devuelve solo los nombres de archivo
-        image_names = [item["name"] for item in response.data]
+        
+        image_names = [item["name"] for item in response]
         return jsonify(image_names)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 # Servir una imagen específica
-@app.route("/Images/<image_name>", methods=["GET"])
+@app.route("/images/<image_name>", methods=["GET"])
 def get_image(image_name):
     try:
-        # Obtener el archivo desde Supabase Storage
         response = supabase.storage.from_(BUCKET_NAME).download(image_name)
-        if response.error:
+        if hasattr(response, "error") and response.error:
             return jsonify({"error": response.error.message}), 404
 
-        # Convertir el contenido a BytesIO para enviar como archivo
-        image_bytes = BytesIO(response.data)
+        # Convertir el contenido a BytesIO
+        image_bytes = BytesIO(response)
         return send_file(image_bytes, mimetype="image/jpeg", download_name=image_name)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
