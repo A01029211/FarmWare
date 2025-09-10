@@ -40,4 +40,4 @@ def get_image(image_name):
         # Convertir el contenido a BytesIO para enviar como archivo
         image_bytes = BytesIO(response.data)
         return send_file(image_bytes, mimetype="image/jpeg", download_name=image_name)
-    except Exception as e
+    except Exception as e:
