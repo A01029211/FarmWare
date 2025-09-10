@@ -11,7 +11,7 @@ import SwiftUI
 struct RoyaIAApp: App {
     var body: some Scene {
         WindowGroup {
-            EscanearView()
+            ContentView()
         }
     }
 }

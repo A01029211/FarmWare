@@ -7,6 +7,7 @@
 import SwiftUI
 import UIKit
 
+
 struct EscanearView: View {
     @StateObject private var camera = CamaraManager()
     @State private var showImagePicker = false
@@ -14,29 +15,34 @@ struct EscanearView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Escanear Cosecha")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                
-                ZStack {
-                    CamaraPreview(session: camera.getSession())
-                        .cornerRadius(10)
-                        
-                    if let image = camera.capturedImage {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
+            
+            ZStack {
+                Color(red: 0.89, green: 0.93, blue: 0.88)
+                    .ignoresSafeArea()
+                VStack {
+                    
+                    Text("Escanear Cosecha")
+                        .font(.title)
+                        .bold()
+                        .padding()
+                    
+                    ZStack {
+                        CamaraPreview(session: camera.getSession())
                             .cornerRadius(10)
+                        
+                        if let image = camera.capturedImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(10)
+                        }
                     }
-                }
-                .frame(width: 300, height: 400)
-                .onChange(of: camera.capturedImage) { newImage in
-                    if newImage != nil {
-                        navigateToResults = true
+                    .frame(width: 300, height: 400)
+                    .onChange(of: camera.capturedImage) { newImage in
+                        if newImage != nil {
+                            navigateToResults = true
+                        }
                     }
-                }
                     
                     Text("Por favor asegurate que los cultivos están enfocados y bien iluminados")
                         .font(.footnote)
@@ -82,13 +88,13 @@ struct EscanearView: View {
                             EmptyView()
                         }
                     )
-                
+                    
                     .onAppear {
                         camera.capturedImage = nil
                         navigateToResults = false
                     }
                 }
-            
+                
                 .sheet(isPresented: $showImagePicker, onDismiss: {
                     if camera.capturedImage != nil {
                         navigateToResults = true
@@ -97,6 +103,7 @@ struct EscanearView: View {
                     ImagePicker(selectedImage: $camera.capturedImage,
                                 sourceType: .photoLibrary)
                 }
+            }
             }
         }
     }
