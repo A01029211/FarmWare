@@ -1,51 +1,43 @@
-# app.py (Flask) - Versión corregida
-from flask import Flask, send_file, abort
-import psycopg2
-import io
-import mimetypes
+from flask import Flask, send_file, jsonify
+from supabase import create_client, Client
+from io import BytesIO
 
 app = Flask(__name__)
 
-def get_db_connection():
-    """Conecta a PostgreSQL"""
-    return psycopg2.connect(
-        host="localhost",  # Cambiar si tu BD está en otra máquina
-        database="farmware_db",
-        user="farmware_user",
-        password="farmware_passwordsupersecreto"
-    )
+# --- Configuración Supabase ---
+SUPABASE_URL = "https://ldkthvohdsaqqwyyfgir.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxka3Rodm9oZHNhcXF3eXlmZ2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MzkyNDIsImV4cCI6MjA3MzExNTI0Mn0.HbBiNf86dMx2Y3oZq0GntWwQXhQX1s6q7-4O-p-lgmw"
 
-@app.route('/images/<path:filename>')
-def get_image(filename):
-    """Devuelve la imagen desde la base de datos"""
-    filename = filename.strip()  # elimina espacios accidentales
-    
-    conn = None
-    cur = None
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# Nombre del bucket en Supabase Storage
+BUCKET_NAME = "Images"
+
+# --- Rutas ---
+
+# Lista de imágenes disponibles
+@app.route("/images", methods=["GET"])
+def list_images():
     try:
-        conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute("SELECT image_data FROM images WHERE filename ILIKE %s", (filename,))
-        result = cur.fetchone()
-    except psycopg2.OperationalError as e:
-        # Si no se conecta a la BD
-        print("Error de conexión:", e)
-        abort(500, description="Error al conectar con la base de datos")
-    finally:
-        if cur:
-            cur.close()
-        if conn:
-            conn.close()
+        response = supabase.storage.from_(BUCKET_NAME).list()
+        if response.error:
+            return jsonify({"error": response.error.message}), 500
+        # Devuelve solo los nombres de archivo
+        image_names = [item["name"] for item in response.data]
+        return jsonify(image_names)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    if result is None:
-        abort(404, description="Imagen no encontrada")
+# Servir una imagen específica
+@app.route("/images/<image_name>", methods=["GET"])
+def get_image(image_name):
+    try:
+        # Obtener el archivo desde Supabase Storage
+        response = supabase.storage.from_(BUCKET_NAME).download(image_name)
+        if response.error:
+            return jsonify({"error": response.error.message}), 404
 
-    # Detecta el tipo de imagen automáticamente
-    mime_type, _ = mimetypes.guess_type(filename)
-    if mime_type is None:
-        mime_type = 'application/octet-stream'
-
-    return send_file(io.BytesIO(result[0]), mimetype=mime_type)
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3001, debug=True)
+        # Convertir el contenido a BytesIO para enviar como archivo
+        image_bytes = BytesIO(response.data)
+        return send_file(image_bytes, mimetype="image/jpeg", download_name=image_name)
+    except Exception as e
