@@ -16,7 +16,7 @@ BUCKET_NAME = "Images"
 # --- Rutas ---
 
 # Lista de imágenes disponibles
-@app.route("/images", methods=["GET"])
+@app.route("/Images", methods=["GET"])
 def list_images():
     try:
         response = supabase.storage.from_(BUCKET_NAME).list()
@@ -29,7 +29,7 @@ def list_images():
         return jsonify({"error": str(e)}), 500
 
 # Servir una imagen específica
-@app.route("/images/<image_name>", methods=["GET"])
+@app.route("/Images/<image_name>", methods=["GET"])
 def get_image(image_name):
     try:
         # Obtener el archivo desde Supabase Storage
