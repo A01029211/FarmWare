@@ -28,20 +28,20 @@ def list_images():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Servir una imagen específica
 @app.route("/images/<image_name>", methods=["GET"])
 def get_image(image_name):
     try:
         response = supabase.storage.from_(BUCKET_NAME).download(image_name)
-        if hasattr(response, "error") and response.error:
-            return jsonify({"error": response.error.message}), 404
-
-        # Convertir el contenido a BytesIO
+        
+        # Verificar si vino con error
+        if not response:
+            return jsonify({"error": "No se pudo descargar el archivo"}), 404
+        
+        # response aquí ya son los bytes
         image_bytes = BytesIO(response)
         return send_file(image_bytes, mimetype="image/jpeg", download_name=image_name)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
 # --- Ejecutar servidor ---
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000, debug=True)
