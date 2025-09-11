@@ -22,11 +22,11 @@ struct MainView: View {
                 case .escanear:
                     EscanearView()
                 case .historial:
-                    ResultadosView()
+                    HistoryView()
                 case .perfil:
-                    EscanearView()
+                    RoyalFile()
                 case .datos:
-                    ResultadosView()
+                    DetalleLote()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
